@@ -32,8 +32,6 @@ document.ready(
     // toggleTheme function.
     // this script shouldn't be changed.
     function () {
-        window.heap = window.heap || [], heap.load = function (e, t) { window.heap.appid = e, window.heap.config = t = t || {}; var r = document.createElement("script"); r.type = "text/javascript", r.async = !0, r.src = "https://cdn.heapanalytics.com/js/heap-" + e + ".js"; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(r, a); for (var n = function (e) { return function () { heap.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "resetIdentity", "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"], o = 0; o < p.length; o++)heap[p[o]] = n(p[o]) };
-        heap.load("2111276906");
         var _Blog = window._Blog || {};
         const currentTheme = window.localStorage && window.localStorage.getItem('theme');
         const isDark = currentTheme === 'dark';
@@ -63,7 +61,7 @@ document.ready(
                     document.getElementsByTagName('body')[0].classList.add('dark-theme');
                 }
                 window.localStorage &&
-                window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
+                    window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light')
             })
             // moblie
             document.getElementById('mobile-toggle-theme').addEventListener('click', () => {
@@ -78,7 +76,7 @@ document.ready(
                     document.getElementById("mobile-toggle-theme").innerText = "· Dark"
                 }
                 window.localStorage &&
-                window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
+                    window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light')
             })
         };
         _Blog.toggleTheme();
