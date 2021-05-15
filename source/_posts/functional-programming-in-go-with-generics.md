@@ -71,7 +71,7 @@ In the Go ecosystem, there's already exist many functional programming libraries
 1. **type unsafe + use-case agnostic** - libraries that chose this approach implemented a design that is not type safe but can be applied to any use case. These libraries work with custom types and structs but with the tradeoff that [type assertions](https://tour.golang.org/methods/15) must be used which exposes the application to the risk of a runtime panic if improperly implemented.
     * For example, a generic unique function might have this signature: `func Uniq(data interface{}) interface{}`
 
-There's certainly an overhead for a developer to learn a functional library and with the above two options, the overhead may not be worth it especially for production applications where runtime panics are not acceptable.
+These two design choices present two similarly unappealing options: limited utility or runtime panic risk. The easiest and perhaps most common option is to not use a functional programming library with Go and stick with an imperative style.
 
 ## Functional Go with Generics
 
