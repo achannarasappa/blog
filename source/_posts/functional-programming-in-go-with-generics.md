@@ -223,49 +223,13 @@ In the above examples, the two use cases use the go2go compiler and a Go 1.18 li
 
 The addition of generics to Go will open up new sorts of solutions, approaches, and paradigms with better functional programming support being one of them. With the growing popularity of functional programming, better functional programming support and the resulting possibilities have the potential to bring in developers that may have not otherwise considered learning Go and expand the community - a net positive in my view. It will be exciting to see how the Go community and ecosystem evolves over time with the addition of generics and the new solutions it enables.
 
+## References
 
------
-
-* what is functional programming?
-  * pure functions - a function that when called with the same input always returns the same output with no shared state, mutable data, or side effects
-  * function composition - combining multiple functions together to apply logic to data
-  * declarative rather than imperative - express *what* the function must do without defining *how* to achieve it
-* what can you do with functional programming and what is the benefit?
-  * what can you do?
-  * benefits
-    * testability - testing pure functions is simpler because the function will never produce effects outside of it's scope (e.g. console output, database writes) and will always produce predictable output
-    * readability - composed series of functions are subjectively easier to understand once becoming familiar with functional language/library primitives
-    * understandability - reading and understanding a pure function with no side effects, global state, or mutation is subjectively easier
-* what are the pain points in existing functional libraries? (failure modes of current libraries)
-  * functions are either generic (interface args and outputs) or type safe (highly specific to type) but not both
-      * no type safety / use of type assertions
-        * not used in many libraries or prod applications
-          * compare to usage metrics of functional libraries in other ecosystems
-      * type safe and specialized - 
-  * lack of focus on practical functional style (currying, data last) 
-* how do generics help with functional programming in go?
-  * reduce code duplication - write common functions with support for multiple type parameters
-  * type safe higher order functions - no need to use type assertions to add type safety
-* what limitations are there with go's generics implementation?
-  * variadic functions
-
-* go functional feature survey
-  * first-class functions
-  * tail call optimization
-  * generics
-  * variadic functions
-  * higher order functions
-  * closures
-
-* go functional library survey
+* Go functional library survey
   * [go-funk](https://github.com/thoas/go-funk) [2.5k stars, type-safe or generic, active]
   * [go-underscore](https://github.com/tobyhede/go-underscore) [1.2k stars, generic, abandoned]
   * [gubrak](https://github.com/novalagung/gubrak) [336 stars, generic, active]
   * [fpGo](https://github.com/TeaEntityLab/fpGo) [167 stars, generic, active]
   * [functional-go](https://github.com/logic-building/functional-go) [92 stars, type-safe, active]
-* references
+* Articles
   * [The past, present, and future of Go generics](https://blog.logrocket.com/past-present-future-go-generics/)
-
-* Type safety - when building utility functions in Go <=1.17, developers have the options of making their implementation use case specific or using [type assertions](https://golang.org/ref/spec#Type_assertions) or [reflection](https://golang.org/pkg/reflect/) which can lead to panics at runtime and other unexpected behavior
-  * Existing utility libraries typically rely on type assertions which pose a serious risk to any workload that can not tolerate a runtime panic (e.g. production applications)
-* Functional-first - `pneumatic`'s data processing functions all receive data as the last argument making it simpler to compose together small functions together into larger ones and promote reusability
