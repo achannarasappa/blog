@@ -217,65 +217,8 @@
 </ol>
 <h3 id="Experimenting-with-a-Go-1-18-functional-library"><a href="#Experimenting-with-a-Go-1-18-functional-library" class="headerlink" title="Experimenting with a Go 1.18 functional library"></a>Experimenting with a Go 1.18 functional library</h3><p>In the above examples, the two use cases use the go2go compiler and a Go 1.18 library called <a href="https://github.com/achannarasappa/pneumatic" target="_blank" rel="noopener">pneumatic</a> which provides common functional primitives similar to those found in <a href="https://ramdajs.com/" target="_blank" rel="noopener">Ramda</a> (JavaScript), <a href="https://hexdocs.pm/elixir/api-reference.html#content" target="_blank" rel="noopener">Elixir’s standard library</a>, and others. Given the go2go compiler’s limited feature set, pneumatic should only be used for experimental purposes as of the writing of this article but the long term vision is evolve it into general purpose functional Go library as the Go 1.18 compiler matures. Have a look at the <a href="https://github.com/achannarasappa/pneumatic/blob/main/README.md" target="_blank" rel="noopener">pneumatic readme</a> for instructions on how to set it up and start playing with functional programming in Go 1.18.</p>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>The addition of generics to Go will open up new sorts of solutions, approaches, and paradigms with better functional programming support being one of them. With the growing popularity of functional programming, better functional programming support and the resulting possibilities have the potential to bring in developers that may have not otherwise considered learning Go and expand the community - a net positive in my view. It will be exciting to see how the Go community and ecosystem evolves over time with the addition of generics and the new solutions it enables.</p>
-<hr>
-<ul>
-<li><p>what is functional programming?</p>
-<ul>
-<li>pure functions - a function that when called with the same input always returns the same output with no shared state, mutable data, or side effects</li>
-<li>function composition - combining multiple functions together to apply logic to data</li>
-<li>declarative rather than imperative - express <em>what</em> the function must do without defining <em>how</em> to achieve it</li>
-</ul>
-</li>
-<li><p>what can you do with functional programming and what is the benefit?</p>
-<ul>
-<li>what can you do?</li>
-<li>benefits<ul>
-<li>testability - testing pure functions is simpler because the function will never produce effects outside of it’s scope (e.g. console output, database writes) and will always produce predictable output</li>
-<li>readability - composed series of functions are subjectively easier to understand once becoming familiar with functional language/library primitives</li>
-<li>understandability - reading and understanding a pure function with no side effects, global state, or mutation is subjectively easier</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>what are the pain points in existing functional libraries? (failure modes of current libraries)</p>
-<ul>
-<li>functions are either generic (interface args and outputs) or type safe (highly specific to type) but not both<ul>
-<li>no type safety / use of type assertions<ul>
-<li>not used in many libraries or prod applications<ul>
-<li>compare to usage metrics of functional libraries in other ecosystems</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>type safe and specialized - </li>
-</ul>
-</li>
-<li>lack of focus on practical functional style (currying, data last) </li>
-</ul>
-</li>
-<li><p>how do generics help with functional programming in go?</p>
-<ul>
-<li>reduce code duplication - write common functions with support for multiple type parameters</li>
-<li>type safe higher order functions - no need to use type assertions to add type safety</li>
-</ul>
-</li>
-<li><p>what limitations are there with go’s generics implementation?</p>
-<ul>
-<li>variadic functions</li>
-</ul>
-</li>
-<li><p>go functional feature survey</p>
-<ul>
-<li>first-class functions</li>
-<li>tail call optimization</li>
-<li>generics</li>
-<li>variadic functions</li>
-<li>higher order functions</li>
-<li>closures</li>
-</ul>
-</li>
-<li><p>go functional library survey</p>
-<ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ul>
+<li>Go functional library survey<ul>
 <li><a href="https://github.com/thoas/go-funk" target="_blank" rel="noopener">go-funk</a> [2.5k stars, type-safe or generic, active]</li>
 <li><a href="https://github.com/tobyhede/go-underscore" target="_blank" rel="noopener">go-underscore</a> [1.2k stars, generic, abandoned]</li>
 <li><a href="https://github.com/novalagung/gubrak" target="_blank" rel="noopener">gubrak</a> [336 stars, generic, active]</li>
@@ -283,17 +226,9 @@
 <li><a href="https://github.com/logic-building/functional-go" target="_blank" rel="noopener">functional-go</a> [92 stars, type-safe, active]</li>
 </ul>
 </li>
-<li><p>references</p>
-<ul>
+<li>Articles<ul>
 <li><a href="https://blog.logrocket.com/past-present-future-go-generics/" target="_blank" rel="noopener">The past, present, and future of Go generics</a></li>
 </ul>
-</li>
-<li><p>Type safety - when building utility functions in Go &lt;=1.17, developers have the options of making their implementation use case specific or using <a href="https://golang.org/ref/spec#Type_assertions" target="_blank" rel="noopener">type assertions</a> or <a href="https://golang.org/pkg/reflect/" target="_blank" rel="noopener">reflection</a> which can lead to panics at runtime and other unexpected behavior</p>
-<ul>
-<li>Existing utility libraries typically rely on type assertions which pose a serious risk to any workload that can not tolerate a runtime panic (e.g. production applications)</li>
-</ul>
-</li>
-<li><p>Functional-first - <code>pneumatic</code>‘s data processing functions all receive data as the last argument making it simpler to compose together small functions together into larger ones and promote reusability</p>
 </li>
 </ul>
 
