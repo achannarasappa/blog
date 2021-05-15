@@ -1,6 +1,6 @@
 ---
 title: Functional programming in Go with generics
-date: 2021-04-26 8:45:51
+date: 2021-05-14 19:00:00
 tags:
 ---
 
