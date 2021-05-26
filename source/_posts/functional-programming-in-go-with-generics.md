@@ -1,10 +1,10 @@
 ---
 title: Functional programming in Go with generics
-date: 2021-05-14 19:00:00
+date: 2021-05-25 19:00:00
 tags:
 ---
 
-Functional programming is an increasing popular programming paradigm with many languages support and adding support for functional features. Go already supports some of these features such as first-class and higher order functions and enabling functional programming.
+Functional programming is an increasing popular programming paradigm with many languages building or already supporting it. Go already supports some of these features such as first-class and higher order functions and enabling functional programming.
 
 One key feature that's been missing from Go is generics. Without this feature, functional Go libraries and applications are forced down one of two paths: type safe + use-case specific or type-unsafe + use-case agnostic. With the upcoming release of Go 1.18 in early 2022, [generics are expected to be added to the language](https://blog.golang.org/generics-proposal) which will enable new sorts of functional programming solutions in Go.
 
@@ -18,14 +18,14 @@ Functional programming as defined by [Wikipedia](https://en.wikipedia.org/wiki/F
 
 > programming paradigm where programs are constructed by applying and composing functions.
 
-In more concrete terms, there's a few key attributes to functional programming:
+In more concrete terms, there's a few key characteristics to functional programming:
 
   * **pure functions** - a function that when called with the same input always returns the same output with no shared state, mutable data, or side effects
   * **immutable data** - data is never reassigned or changed after creation
   * **function composition** - combining multiple functions together to apply logic to data
   * **declarative over imperative** - express *what* the function must do without defining *how* to achieve it
 
-For more detailed information on Functional Programming, gave a look at these two great articles that describe it at length with examples: [What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0) and [Functional Go](https://medium.com/@geisonfgfg/functional-go-bc116f4c96a4)
+For more detailed information on Functional Programming, have a look at these two great articles that describe it at length with examples: [What is Functional Programming?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0) and [Functional Go](https://medium.com/@geisonfgfg/functional-go-bc116f4c96a4)
 
 ### What are the benefits of functional programming?
 
@@ -39,7 +39,7 @@ As many developers know from experience and as Robert C. Martin stated in [*Clea
 
 > Indeed, the ratio of time spent reading versus writing is well over 10 to 1. We are constantly reading old code as part of the effort to write new code. ...[Therefore,] making it easy to read makes it easier to write.
 
-These benefits can be highly impactful depending on the team's experience with or willingness to learn functional programming. On the opposite end, functional programming can be a drag on inexperienced teams without enough time to invest in learning or large legacy codebases where it could introduce context switching or significant rework without delivering associated value.
+These benefits can be highly impactful depending on the team's experience with or willingness to learn functional programming. On the opposite end, functional programming can be a drag on inexperienced teams without enough time to invest in learning or large legacy codebases where it could introduce context switching or significant rework without delivering proportional value.
 
 ## Functional Programming in Go today
 
@@ -47,7 +47,7 @@ Go is not a functional language but it does offer a set of features which allow 
 
 ### Language Features
 
-Language support for functional programming lies on a spectrum ranging from functional paradigm only (e.g. Haskell) to multi-paradigm + first-class support (e.g. Scala, Elixir) to multi-paradigm + partial support (e.g. Javascript, Go). In the last category of languages, functional programming is typically supported through the use of community created libraries that replicate some or all of the features in the standard libraries of the latter two.
+Language support for functional programming lies on a spectrum ranging from functional paradigm only (e.g. Haskell) to multi-paradigm + first-class support (e.g. Scala, Elixir) to multi-paradigm + partial support (e.g. Javascript, Go). In the latter category of languages, functional programming is typically supported through the use of community created libraries that replicate some or all of the features in the standard libraries of the former two.
 
 Go being in the last category does offer these features which enable functional programming:
 
@@ -216,9 +216,9 @@ fmt.Printf("%+v\n", topUsers)
 
 Some features to call outs in the above examples:
 
-1. The imperative implementation is valid Go 1.16 (latest version at time of writing) code while the functional implementation is only valid when compiled with Go 1.18 (go2go)
+1. The imperative implementation is valid Go 1.16 (latest version at time of writing) syntax while the functional implementation is only valid when compiled with Go 1.18 (go2go)
 2. Generic functions with type parameters in the functional example (e.g. `Compose3`, `Head`, etc) are only supported with Go 1.18
-3. Both implementations use differing logic to solve the same problem
+3. Both implementations use differing logic to solve the same problem that best suit each respective style
 4. The imperative implementation is likely computationally more efficient than a functional one that uses eager evaluation (i.e. [pneumatic](https://github.com/achannarasappa/pneumatic) in this example)
 
 ### Experimenting with a Go 1.18 functional library
